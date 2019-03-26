@@ -31,7 +31,6 @@ import {
   sum as emberSum,
   union as emberUnion,
   uniq as emberUniq,
-  uniqBy as emberUniqBy
 } from '@ember/object/computed';
 
 import { assert } from '@ember/debug';
@@ -863,6 +862,9 @@ export const uniq = legacyMacro(emberUniq);
   @param {string} propertyKey - Key of the property on the objects of the array to determine uniqueness by
   @return {any[]}
 */
+let uniqByFn = function() {};
 if(emberUniqBy) {
-  export const uniqBy = legacyMacro(emberUniqBy);
+  uniqByFn = emberUniqBy;
 }
+
+export const uniqBy = legacyMacro(uniqByFn);
