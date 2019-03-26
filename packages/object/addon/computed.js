@@ -863,4 +863,6 @@ export const uniq = legacyMacro(emberUniq);
   @param {string} propertyKey - Key of the property on the objects of the array to determine uniqueness by
   @return {any[]}
 */
-export const uniqBy = legacyMacro(emberUniqBy);
+if(emberUniqBy) {
+  export const uniqBy = legacyMacro(emberUniqBy);
+}
